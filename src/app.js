@@ -41,6 +41,7 @@ function displayWeatherCondition(response) {
     response.data.dt * 1000
   );
 }
+let city = "Paris";
 let apiKey = "028b2db83794e8e0daa344ae7ef30add";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayWeatherCondition);
