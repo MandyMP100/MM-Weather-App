@@ -50,7 +50,20 @@ function displayWeatherCondition(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
 }
-let city = "Gislingham";
-let apiKey = "028b2db83794e8e0daa344ae7ef30add";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayWeatherCondition);
+
+function searchCity(city) {
+  let apiKey = "028b2db83794e8e0daa344ae7ef30add";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+function search(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input");
+  searchCity(city.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
+
+searchCity("London");
