@@ -71,12 +71,16 @@ function showFahrTemp(event) {
   let tempElement = document.querySelector("#current-temp");
   let fahrTemp = (celcTemp * 9) / 5 + 32;
   tempElement.innerHTML = Math.round(fahrTemp);
+  celc.classList.remove("active");
+  fahr.classList.add("active");
 }
 
 function showCelcTemp(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#current-temp");
   tempElement.innerHTML = Math.round(celcTemp);
+  celc.classList.add("active");
+  fahr.classList.remove("active");
 }
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);

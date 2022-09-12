@@ -42,3 +42,10 @@ li {
 .btn {
   max-width: 80px;
 }
+.weatherTemp .active:hover {
+  text-decoration: none;
+}
+.weatherTemp .active {
+  color: black;
+  cursor: default;
+}
