@@ -36,6 +36,9 @@ li {
 .description {
   text-transform: capitalize;
 }
+.currentTemp {
+  font-size: 24px;
+}
 .btn {
   max-width: 80px;
 }

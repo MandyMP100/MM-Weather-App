@@ -1,3 +1,5 @@
+searchCity("London");
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -30,6 +32,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
+  celcTemp = Math.round(response.data.main.temp);
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -63,7 +66,25 @@ function search(event) {
   searchCity(city.value);
 }
 
+function showFahrTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  let fahrTemp = (celcTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrTemp);
+}
+
+function showCelcTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = Math.round(celcTemp);
+}
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-searchCity("London");
+let celcTemp = null;
+
+let fahr = document.querySelector("#fahr");
+let celc = document.querySelector("#celc");
+
+fahr.addEventListener("click", showFahrTemp);
+celc.addEventListener("click", showCelcTemp);
