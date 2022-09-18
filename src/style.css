@@ -49,3 +49,19 @@ li {
   color: black;
   cursor: default;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+.weather-forecast-min {
+  opacity: 0.5;
+}
+.weather-forecast-day {
+  opacity: 0.5;
+  font-size: 16px;
+}
+
+.weather-forecast-temp {
+  font-size: 13px;
+}
