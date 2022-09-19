@@ -52,6 +52,7 @@ function displayWeatherCondition(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
+  displayForecast();
 }
 
 function searchCity(city) {
@@ -81,6 +82,37 @@ function showCelcTemp(event) {
   tempElement.innerHTML = Math.round(celcTemp);
   celc.classList.add("active");
   fahr.classList.remove("active");
+}
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let forecastDays = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  
+              <div class="col-2">
+                <div class="weather-forecast-day">${day}</div>
+                <img
+                  src="http://openweathermap.org/img/wn/04d@2x.png"
+                  alt=""
+                  width="36px"
+                />
+                <div class="weather-forecast-temp">
+                  <span class="weather-forecast-max"> 16° </span>
+                  <span class="weather-forecast-min"> 9° </span>
+                </div>
+              </div>
+            
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
 }
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
