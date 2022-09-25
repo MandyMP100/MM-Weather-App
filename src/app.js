@@ -81,23 +81,6 @@ function search(event) {
   searchCity(city.value);
 }
 
-function showFahrTemp(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-temp");
-  let fahrTemp = (celcTemp * 9) / 5 + 32;
-  tempElement.innerHTML = Math.round(fahrTemp);
-  celc.classList.remove("active");
-  fahr.classList.add("active");
-}
-
-function showCelcTemp(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-temp");
-  tempElement.innerHTML = Math.round(celcTemp);
-  celc.classList.add("active");
-  fahr.classList.remove("active");
-}
-
 function displayForecast(response) {
   let forecast = document.querySelector("#forecast");
 
@@ -141,11 +124,3 @@ function displayForecast(response) {
 }
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
-
-let celcTemp = null;
-
-let fahr = document.querySelector("#fahr");
-let celc = document.querySelector("#celc");
-
-fahr.addEventListener("click", showFahrTemp);
-celc.addEventListener("click", showCelcTemp);
